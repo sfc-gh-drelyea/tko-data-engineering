@@ -16,7 +16,14 @@ Last Updated: 1/1/2023
 -- ----------------------------------------------------------------------------
 -- Step #2: Create the account level objects
 -- ----------------------------------------------------------------------------
-USE ROLE ACCOUNTADMIN;
+
+
+-- login as user tko 
+
+
+--USE ROLE ACCOUNTADMIN;
+use role securityadmin;
+
 
 -- Roles
 SET MY_USER = CURRENT_USER();
@@ -24,9 +31,18 @@ CREATE OR REPLACE ROLE HOL_ROLE;
 GRANT ROLE HOL_ROLE TO ROLE SYSADMIN;
 GRANT ROLE HOL_ROLE TO USER IDENTIFIER($MY_USER);
 
+
+-- use admin account for this as accountadmin
+-- log off and into admin account
+
 GRANT EXECUTE TASK ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT MONITOR EXECUTION ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE HOL_ROLE;
+
+
+-- use user tko
+-- log off and into tko account as sysadmin
+
 
 -- Databases
 CREATE OR REPLACE DATABASE HOL_DB;
