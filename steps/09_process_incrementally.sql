@@ -20,17 +20,18 @@ ALTER WAREHOUSE HOL_WH SET WAREHOUSE_SIZE = XLARGE;
 CALL SYSTEM$WAIT(5, 'SECONDS');
 
 ls @external.frostbyte_raw_stage/pos/order_header/year=2022;
+ls @external.frostbyte_raw_stage/pos/order_detail/year=2022;
 
 COPY INTO ORDER_HEADER
 FROM @external.frostbyte_raw_stage/pos/order_header/year=2022
 FILE_FORMAT = (FORMAT_NAME = EXTERNAL.PARQUET_FORMAT)
-SIZE_LIMIT=1000000
+PATTERN = '.*3.snappy.parquet'
 MATCH_BY_COLUMN_NAME = CASE_SENSITIVE;
 
 COPY INTO ORDER_DETAIL
 FROM @external.frostbyte_raw_stage/pos/order_detail/year=2022
 FILE_FORMAT = (FORMAT_NAME = EXTERNAL.PARQUET_FORMAT)
-SIZE_LIMIT=1000000
+PATTERN = '.*3.snappy.parquet'
 MATCH_BY_COLUMN_NAME = CASE_SENSITIVE;
 
 -- See how many new records are in the stream (this may be a bit slow)
@@ -46,6 +47,9 @@ ALTER WAREHOUSE HOL_WH SET WAREHOUSE_SIZE = XSMALL;
 USE SCHEMA HARMONIZED;
 
 EXECUTE TASK ORDERS_UPDATE_TASK;
+
+
+-- CI/CD COMMENT
 
 
 -- ----------------------------------------------------------------------------

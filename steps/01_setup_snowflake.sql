@@ -25,6 +25,7 @@ Last Updated: 1/1/2023
 -- login as user tko 
 
 
+-- SKIP ON RESET 
 
 -- DO IN SNOWFLAKE AS ACCOUNTADMIN
 SET MY_USER = CURRENT_USER();
