@@ -25,9 +25,6 @@ Last Updated: 1/1/2023
 -- login as user tko 
 
 
---USE ROLE sysadmin;
-use role sysadmin;
-
 
 -- DO IN SNOWFLAKE AS ACCOUNTADMIN
 SET MY_USER = CURRENT_USER();
@@ -39,6 +36,10 @@ GRANT EXECUTE TASK ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT MONITOR EXECUTION ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE HOL_ROLE;
 
+
+
+--USE ROLE sysadmin;
+use role sysadmin;
 
 -- use user tko
 -- log off and into tko account as sysadmin

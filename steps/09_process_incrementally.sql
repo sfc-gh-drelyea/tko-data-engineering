@@ -24,13 +24,13 @@ ls @external.frostbyte_raw_stage/pos/order_header/year=2022;
 COPY INTO ORDER_HEADER
 FROM @external.frostbyte_raw_stage/pos/order_header/year=2022
 FILE_FORMAT = (FORMAT_NAME = EXTERNAL.PARQUET_FORMAT)
-SIZE_LIMIT=1000000000
+SIZE_LIMIT=1000000
 MATCH_BY_COLUMN_NAME = CASE_SENSITIVE;
 
 COPY INTO ORDER_DETAIL
 FROM @external.frostbyte_raw_stage/pos/order_detail/year=2022
 FILE_FORMAT = (FORMAT_NAME = EXTERNAL.PARQUET_FORMAT)
-SIZE_LIMIT=1000000000
+SIZE_LIMIT=1000000
 MATCH_BY_COLUMN_NAME = CASE_SENSITIVE;
 
 -- See how many new records are in the stream (this may be a bit slow)
