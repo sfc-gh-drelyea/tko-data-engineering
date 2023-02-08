@@ -1,3 +1,7 @@
+# RUN THIS BEFORE DEMO
+
+
+
 #------------------------------------------------------------------------------
 # Hands-On Lab: Data Engineering with Snowpark
 # Script:       02_load_raw.py

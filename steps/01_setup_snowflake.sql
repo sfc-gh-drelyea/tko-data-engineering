@@ -1,3 +1,7 @@
+-- RUN THIS BEFORE DEMO
+
+
+
 /*-----------------------------------------------------------------------------
 Hands-On Lab: Data Engineering with Snowpark
 Script:       01_setup_snowflake.sql
@@ -21,19 +25,15 @@ Last Updated: 1/1/2023
 -- login as user tko 
 
 
---USE ROLE ACCOUNTADMIN;
-use role securityadmin;
+--USE ROLE sysadmin;
+use role sysadmin;
 
 
--- Roles
+-- DO IN SNOWFLAKE AS ACCOUNTADMIN
 SET MY_USER = CURRENT_USER();
 CREATE OR REPLACE ROLE HOL_ROLE;
 GRANT ROLE HOL_ROLE TO ROLE SYSADMIN;
 GRANT ROLE HOL_ROLE TO USER IDENTIFIER($MY_USER);
-
-
--- use admin account for this as accountadmin
--- log off and into admin account
 
 GRANT EXECUTE TASK ON ACCOUNT TO ROLE HOL_ROLE;
 GRANT MONITOR EXECUTION ON ACCOUNT TO ROLE HOL_ROLE;
@@ -43,7 +43,7 @@ GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE HOL_ROLE;
 -- use user tko
 -- log off and into tko account as sysadmin
 
-
+-- DO WITH SYSADMIN
 -- Databases
 CREATE OR REPLACE DATABASE HOL_DB;
 GRANT OWNERSHIP ON DATABASE HOL_DB TO ROLE HOL_ROLE;

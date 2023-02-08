@@ -92,6 +92,8 @@ def create_pos_view(session):
                             F.col("ORDER_TOTAL"))
     final_df.create_or_replace_view('POS_FLATTENED_V')
 
+#create views for stream
+
 def create_pos_view_stream(session):
     session.use_schema('HARMONIZED')
     _ = session.sql('CREATE OR REPLACE STREAM POS_FLATTENED_V_STREAM \
