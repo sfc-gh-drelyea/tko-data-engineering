@@ -1,3 +1,5 @@
+--CHANGE FOR SOURCE CONTROL
+
 /*-----------------------------------------------------------------------------
 Hands-On Lab: Data Engineering with Snowpark
 Script:       10_deploy_via_cicd.sql
