@@ -1,4 +1,5 @@
 --CHANGE FOR SOURCE CONTROL
+-- new change
 
 /*-----------------------------------------------------------------------------
 Hands-On Lab: Data Engineering with Snowpark
